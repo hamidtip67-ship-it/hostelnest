@@ -1,41 +1,588 @@
-<!DOCTYPE html>
+        /* Header Navigation */
+        header {<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HostelNest Lahore | Premium Student & Professional Accommodations</title>
+    <title>HostelNest Lahore | Premium Student & Professional Stays</title>
+    <!-- Google Fonts & FontAwesome for Luxury Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Modern Design Tokens & Reset */
-        *, *::before, *::after {
+        :root {
+            --primary-dark: #0a192f;
+            --royal-blue: #1e3a8a;
+            --royal-light: #3b82f6;
+            --gold-premium: #d4af37;
+            --gold-hover: #aa8c2c;
+            --bg-luxe: #f4f6f9;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --radius-premium: 16px;
+        }
+
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        :root {
-            --primary: #0f172a;       /* Deep Executive Navy */
-            --accent: #0284c7;        /* Premium Sky Blue */
-            --accent-hover: #0369a1;
-            --text-main: #334155;     /* Clean Charcoal Grey */
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;      /* Ultra-clean light grey background */
-            --card-border: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-            --radius: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-luxe);
             color: var(--text-main);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            padding-bottom: 40px;
         }
 
-        /* Header Navigation */
+        /* Glassmorphism Premium Header */
         header {
+            position: sticky;
+            top: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--royal-light);
+        }
+
+        .verified-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #bae6fd;
+        }
+
+        /* Hero Banner with Aesthetic Background overlay */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(30, 58, 138, 0.85)), url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 45px 20px;
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 10px 25px rgba(10, 25, 47, 0.15);
+        }
+
+        .hero-banner h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner p {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* Premium Custom Filters Layout */
+        .search-container {
+            background: white;
+            padding: 16px;
+            border-radius: var(--radius-premium);
+            box-shadow: var(--card-shadow);
+            max-width: 500px;
+            margin: -20px auto 0 auto;
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .filter-trigger {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 14px 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-trigger:active {
+            background: #f1f5f9;
+            transform: scale(0.99);
+        }
+
+        .filter-trigger-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .filter-trigger-info span:first-child {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-trigger-info span:last-child {
+            font-size: 14px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .filter-trigger i {
+            color: var(--royal-light);
+            font-size: 16px;
+        }
+
+        /* Modern App-Style Bottom Sheets */
+        .bottom-sheet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-sheet-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .bottom-sheet {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            padding: 24px 20px;
+            z-index: 201;
+            transition: bottom 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            max-height: 75vh;
+            overflow-y: auto;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+        }
+
+        .bottom-sheet.active {
+            bottom: 0;
+        }
+
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .sheet-header h3 {
+            font-size: 18px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .sheet-close {
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .sheet-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sheet-option-card {
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sheet-option-card.selected {
+            background: #eff6ff;
+            border-color: var(--royal-light);
+            color: var(--royal-blue);
+        }
+
+        .sheet-option-card.selected::after {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--royal-light);
+            font-size: 18px;
+        }
+
+        /* Accommodation Section & Premium Cards */
+        .section-title {
+            padding: 30px 20px 15px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--royal-light);
+        }
+
+        .listings-grid {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hostel-luxe-card {
+            background: white;
+            border-radius: var(--radius-premium);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            height: 180px;
+            background: #e2e8f0;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gender-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gender-badge.boys { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+        .gender-badge.girls { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-location {
+            font-size: 11px;
+            color: var(--royal-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .amenities-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .amenity-tag {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 11px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-box .amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .price-box .label {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .btn-premium-connect {
+            background: linear-gradient(135deg, var(--gold-premium), var(--gold-hover));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-premium-connect:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Glassmorphism Top Bar -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-hotel"></i>Hostel<span>Nest</span></div>
+        <div class="verified-badge"><i class="fa-solid fa-shield-check"></i> 100% Verified</div>
+    </header>
+
+    <!-- Executive Luxury Banner -->
+    <section class="hero-banner">
+        <h1>Find Premium Stays</h1>
+        <p>Explore elite student & professional accommodations in Lahore</p>
+    </section>
+
+    <!-- Sleek Filter Hub Trigger System -->
+    <section class="search-container">
+        <div class="filter-trigger" onclick="openSheet('location-sheet')">
+            <div class="filter-trigger-info">
+                <span>Select Location</span>
+                <span id="current-location-label">All Areas / Whole Lahore</span>
+            </div>
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+        <div class="filter-trigger" onclick="openSheet('category-sheet')">
+            <div class="filter-trigger-info">
+                <span>Hostel Type</span>
+                <span id="current-category-label">All Hostels</span>
+            </div>
+            <i class="fa-solid fa-user-group"></i>
+        </div>
+    </section>
+
+    <!-- Listings Interface -->
+    <h2 class="section-title"><i class="fa-solid fa-list-stars"></i> Handpicked Accommodations</h2>
+    
+    <div class="listings-grid" id="hostel-listings">
+        <!-- Card 1 -->
+        <div class="hostel-luxe-card" data-location="johar-town" data-category="boys">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="Premium Room">
+                <div class="gender-badge boys">Boys Only</div>
+            </div>
+            <div class="card-content">
+                <div class="card-location"><i class="fa-solid fa-map-pin"></i> Johar Town (Near UCP & UMT)</div>
+                <div class="card-title">Al-Burraq Executive Boys Hostel</div>
+                <div class="amenities-container">
+                    <div class="amenity-tag"><i class="fa-solid fa-wifi"></i> Hi-Speed Wi-Fi</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-utensils"></i> 3-Time Mess</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-bolt"></i> UPS Backup</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-shirt"></i> Laundry</div>
+                </div>
+                <div class="card-footer">
+                    <div class="price-box">
+                        <span class="amount">Rs. 18,000</span>
+                        <span class="label">per month</span>
+                    </div>
+                    <a href="https://wa.me/923001234567?text=Hi,%20I%20am%20interested%20in%20Al-Burraq%20Executive%20Boys%20Hostel." class="btn-premium-connect">
+                        <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="hostel-luxe-card" data-location="gulberg" data-category="girls">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1617315186354-94de7526bfd2?auto=format&fit=crop&w=600&q=80" alt="Elite Room">
+                <div class="gender-badge girls">Girls Only</div>
+            </div>
+            <div class="card-content">
+                <div class="card-location"><i class="fa-solid fa-map-pin"></i> Gulberg (Near Premium Hubs)</div>
+                <div class="card-title">Royal Palace Premium Girls Luxury Stay</div>
+                <div class="amenities-container">
+                    <div class="amenity-tag"><i class="fa-solid fa-snowflake"></i> Fully AC</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-utensils"></i> Premium Food</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-shield-halved"></i> 24/7 Security</div>
+                    <div class="amenity-tag"><i class="fa-solid fa-bolt"></i> Generator</div>
+                </div>
+                <div class="card-footer">
+                    <div class="price-box">
+                        <span class="amount">Rs. 25,000</span>
+                        <span class="label">per month</span>
+                    </div>
+                    <a href="https://wa.me/923001234567?text=Hi,%20I%20am%20interested%20in%20Royal%20Palace%20Premium%20Girls%20Luxury%20Stay." class="btn-premium-connect">
+                        <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PREMIUM BOTTOM SHEETS (SLIDE UPS) ================= -->
+    
+    <!-- Backdrop Sheet Overlay -->
+    <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeAllSheets()"></div>
+
+    <!-- Location Bottom Sheet -->
+    <div class="bottom-sheet" id="location-sheet">
+        <div class="sheet-header">
+            <h3>Select Elite Area</h3>
+            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-options">
+            <div class="sheet-option-card selected" onclick="selectLocation('all', 'All Areas / Whole Lahore')">All Areas / Whole Lahore</div>
+            <div class="sheet-option-card" onclick="selectLocation('johar-town', 'Johar Town (Near UCP, UMT)')">Johar Town (Near UCP, UMT)</div>
+            <div class="sheet-option-card" onclick="selectLocation('gulberg', 'Gulberg (Near Premium Hubs)')">Gulberg (Near Premium Hubs)</div>
+            <div class="sheet-option-card" onclick="selectLocation('anarkali', 'Anarkali (Near King Edward / GCU)')">Anarkali (Near King Edward / GCU)</div>
+            <div class="sheet-option-card" onclick="selectLocation('gajjumata', 'Gajjumata (Near Metro Station)')">Gajjumata (Near Metro Station)</div>
+        </div>
+    </div>
+
+    <!-- Category Bottom Sheet -->
+    <div class="bottom-sheet" id="category-sheet">
+        <div class="sheet-header">
+            <h3>Select Hostel Category</h3>
+            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-options">
+            <div class="sheet-option-card selected" onclick="selectCategory('all', 'All Hostels')">All Hostels</div>
+            <div class="sheet-option-card" onclick="selectCategory('boys', 'Boys Hostel Only')">Boys Hostel Only</div>
+            <div class="sheet-option-card" onclick="selectCategory('girls', 'Girls Hostel Only')">Girls Hostel Only</div>
+        </div>
+    </div>
+
+    <!-- Smart Logic Script for Filtering and Sheet Animations -->
+    <script>
+        let selectedLocation = 'all';
+        let selectedCategory = 'all';
+
+        function openSheet(id) {
+            document.getElementById('sheet-overlay').classList.add('active');
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeAllSheets() {
+            document.getElementById('sheet-overlay').classList.remove('active');
+            const sheets = document.querySelectorAll('.bottom-sheet');
+            sheets.forEach(sheet => sheet.classList.remove('active'));
+        }
+
+        function selectLocation(value, label) {
+            selectedLocation = value;
+            document.getElementById('current-location-label').innerText = label;
+            
+            // Mark active layout state
+            updateVisualSelection('location-sheet', label);
+            closeAllSheets();
+            filterProperties();
+        }
+
+        function selectCategory(value, label) {
+            selectedCategory = value;
+            document.getElementById('current-category-label').innerText = label;
+            
+            updateVisualSelection('category-sheet', label);
+            closeAllSheets();
+            filterProperties();
+        }
+
+        function updateVisualSelection(sheetId, selectedLabel) {
+            const cards = document.querySelectorAll(`#${sheetId} .sheet-option-card`);
+            cards.forEach(card => {
+                if(card.innerText === selectedLabel) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected')
             background-color: #ffffff;
             border-bottom: 1px solid var(--card-border);
             position: sticky;
