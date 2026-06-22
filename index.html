@@ -74,9 +74,12 @@
             font-size: 11px;
             font-weight: 600;
             border: 1px solid #bae6fd;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        /* Hero Banner with Aesthetic Background overlay */
+        /* Hero Banner */
         .hero-banner {
             position: relative;
             background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(30, 58, 138, 0.85)), url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80');
@@ -104,7 +107,7 @@
             font-weight: 300;
         }
 
-        /* Premium Custom Filters Layout */
+        /* Filter System */
         .search-container {
             background: white;
             padding: 16px;
@@ -164,7 +167,7 @@
             font-size: 16px;
         }
 
-        /* Modern App-Style Bottom Sheets */
+        /* Bottom Sheets */
         .bottom-sheet-overlay {
             position: fixed;
             top: 0;
@@ -259,15 +262,7 @@
             color: var(--royal-blue);
         }
 
-        .sheet-option-card.selected::after {
-            content: '\f058';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: var(--royal-light);
-            font-size: 18px;
-        }
-
-        /* Accommodation Section & Premium Cards */
+        /* Listings Layout */
         .section-title {
             padding: 30px 20px 15px 20px;
             font-size: 18px;
@@ -276,10 +271,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .section-title i {
-            color: var(--royal-light);
         }
 
         .listings-grid {
@@ -322,77 +313,22 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .gender-badge.boys { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
         .gender-badge.girls { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
 
-        .card-content {
-            padding: 20px;
-        }
+        .card-content { padding: 20px; }
+        .card-location { font-size: 11px; color: var(--royal-light); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+        .card-title { font-size: 18px; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
 
-        .card-location {
-            font-size: 11px;
-            color: var(--royal-light);
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .amenities-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+        .amenity-tag { background: #f1f5f9; color: #475569; font-size: 11px; padding: 6px 10px; border-radius: 8px; font-weight: 500; }
 
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .amenities-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 18px;
-        }
-
-        .amenity-tag {
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 11px;
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .price-box {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-box .amount {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .price-box .label {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #f1f5f9; }
+        .price-box { display: flex; flex-direction: column; }
+        .price-box .amount { font-size: 20px; font-weight: 700; color: var(--primary-dark); }
+        .price-box .label { font-size: 11px; color: var(--text-muted); }
 
         .btn-premium-connect {
             background: linear-gradient(135deg, var(--gold-premium), var(--gold-hover));
@@ -405,31 +341,67 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-            transition: all 0.2s;
+            cursor: pointer;
             border: none;
         }
 
-        .btn-premium-connect:active {
-            transform: scale(0.97);
+        /* Lead Gen Form Premium Styling */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 14px;
+            background: #f8fafc;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--royal-light);
+            background: white;
+        }
+        .btn-submit-booking {
+            background: #25d366;
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Glassmorphism Top Bar -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo"><i class="fa-solid fa-hotel"></i>Hostel<span>Nest</span></div>
-        <div class="verified-badge"><i class="fa-solid fa-shield-check"></i> 100% Verified</div>
+        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> 100% Verified</div>
     </header>
 
-    <!-- Executive Luxury Banner -->
+    <!-- Hero Section -->
     <section class="hero-banner">
         <h1>Find Premium Stays</h1>
         <p>Explore elite student & professional accommodations in Lahore</p>
     </section>
 
-    <!-- Sleek Filter Hub Trigger System -->
+    <!-- Filter Buttons Grid -->
     <section class="search-container">
         <div class="filter-trigger" onclick="openSheet('location-sheet')">
             <div class="filter-trigger-info">
@@ -448,8 +420,8 @@
         </div>
     </section>
 
-    <!-- Listings Interface -->
-    <h2 class="section-title"><i class="fa-solid fa-list-stars"></i> Handpicked Accommodations</h2>
+    <!-- Accommodation Grid -->
+    <h2 class="section-title"><i class="fa-solid fa-list"></i> Handpicked Accommodations</h2>
     
     <div class="listings-grid" id="hostel-listings">
         <!-- Card 1 -->
@@ -462,88 +434,116 @@
                 <div class="card-location"><i class="fa-solid fa-map-pin"></i> Johar Town (Near UCP & UMT)</div>
                 <div class="card-title">Al-Burraq Executive Boys Hostel</div>
                 <div class="amenities-container">
-                    <div class="amenity-tag"><i class="fa-solid fa-wifi"></i> Hi-Speed Wi-Fi</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-utensils"></i> 3-Time Mess</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-bolt"></i> UPS Backup</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-shirt"></i> Laundry</div>
+                    <div class="amenity-tag">Hi-Speed Wi-Fi</div>
+                    <div class="amenity-tag">3-Time Mess</div>
+                    <div class="amenity-tag">UPS Backup</div>
                 </div>
                 <div class="card-footer">
                     <div class="price-box">
                         <span class="amount">Rs. 18,000</span>
                         <span class="label">per month</span>
                     </div>
-                    <a href="https://wa.me/923001234567?text=Hi,%20I%20am%20interested%20in%20Al-Burraq%20Executive%20Boys%20Hostel." class="btn-premium-connect">
+                    <button onclick="triggerBooking('Al-Burraq Executive Boys Hostel', 'Johar Town')" class="btn-premium-connect">
                         <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2 (Fixed Broken Image Link) -->
         <div class="hostel-luxe-card" data-location="gulberg" data-category="girls">
             <div class="card-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1617315186354-94de7526bfd2?auto=format&fit=crop&w=600&q=80" alt="Elite Room">
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" alt="Elite Room">
                 <div class="gender-badge girls">Girls Only</div>
             </div>
             <div class="card-content">
                 <div class="card-location"><i class="fa-solid fa-map-pin"></i> Gulberg (Near Premium Hubs)</div>
                 <div class="card-title">Royal Palace Premium Girls Luxury Stay</div>
                 <div class="amenities-container">
-                    <div class="amenity-tag"><i class="fa-solid fa-snowflake"></i> Fully AC</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-utensils"></i> Premium Food</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-shield-halved"></i> 24/7 Security</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-bolt"></i> Generator</div>
+                    <div class="amenity-tag">Fully AC</div>
+                    <div class="amenity-tag">Premium Food</div>
+                    <div class="amenity-tag">24/7 Security</div>
                 </div>
                 <div class="card-footer">
                     <div class="price-box">
                         <span class="amount">Rs. 25,000</span>
                         <span class="label">per month</span>
                     </div>
-                    <a href="https://wa.me/923001234567?text=Hi,%20I%20am%20interested%20in%20Royal%20Palace%20Premium%20Girls%20Luxury%20Stay." class="btn-premium-connect">
+                    <button onclick="triggerBooking('Royal Palace Premium Girls Luxury Stay', 'Gulberg')" class="btn-premium-connect">
                         <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ================= PREMIUM BOTTOM SHEETS (SLIDE UPS) ================= -->
-    
-    <!-- Backdrop Sheet Overlay -->
+    <!-- Bottom Sheets Setup -->
     <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeAllSheets()"></div>
 
-    <!-- Location Bottom Sheet -->
+    <!-- Location Filter List -->
     <div class="bottom-sheet" id="location-sheet">
         <div class="sheet-header">
             <h3>Select Elite Area</h3>
             <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="sheet-options">
-            <div class="sheet-option-card selected" onclick="selectLocation('all', 'All Areas / Whole Lahore')">All Areas / Whole Lahore</div>
+            <div class="sheet-option-card" onclick="selectLocation('all', 'All Areas / Whole Lahore')">All Areas / Whole Lahore</div>
             <div class="sheet-option-card" onclick="selectLocation('johar-town', 'Johar Town (Near UCP, UMT)')">Johar Town (Near UCP, UMT)</div>
             <div class="sheet-option-card" onclick="selectLocation('gulberg', 'Gulberg (Near Premium Hubs)')">Gulberg (Near Premium Hubs)</div>
-            <div class="sheet-option-card" onclick="selectLocation('anarkali', 'Anarkali (Near King Edward / GCU)')">Anarkali (Near King Edward / GCU)</div>
-            <div class="sheet-option-card" onclick="selectLocation('gajjumata', 'Gajjumata (Near Metro Station)')">Gajjumata (Near Metro Station)</div>
         </div>
     </div>
 
-    <!-- Category Bottom Sheet -->
+    <!-- Category Filter List -->
     <div class="bottom-sheet" id="category-sheet">
         <div class="sheet-header">
             <h3>Select Hostel Category</h3>
             <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="sheet-options">
-            <div class="sheet-option-card selected" onclick="selectCategory('all', 'All Hostels')">All Hostels</div>
+            <div class="sheet-option-card" onclick="selectCategory('all', 'All Hostels')">All Hostels</div>
             <div class="sheet-option-card" onclick="selectCategory('boys', 'Boys Hostel Only')">Boys Hostel Only</div>
             <div class="sheet-option-card" onclick="selectCategory('girls', 'Girls Hostel Only')">Girls Hostel Only</div>
         </div>
     </div>
 
-    <!-- Smart Logic Script for Filtering and Sheet Animations -->
+    <!-- Custom Booking/Leads Form Sheet -->
+    <div class="bottom-sheet" id="booking-sheet">
+        <div class="sheet-header">
+            <h3>Secure Your Luxury Stay</h3>
+            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="margin-bottom: 15px; font-size: 13px; color: var(--text-muted);">
+            Hostel: <strong id="modal-hostel-name" style="color: var(--primary-dark);"></strong><br>
+            Location: <span id="modal-hostel-location"></span>
+        </div>
+        
+        <div class="form-group">
+            <label>Your Full Name</label>
+            <input type="text" id="visitor-name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label>Your City / Hometown</label>
+            <input type="text" id="visitor-city" placeholder="e.g. Faisalabad, Multan">
+        </div>
+        <div class="form-group">
+            <label>Room Requirement</label>
+            <select id="visitor-room-type">
+                <option value="Single Room">Single Private Room</option>
+                <option value="2-Sharing">2-Sharing Room</option>
+                <option value="3-Sharing">3-Sharing Room</option>
+            </select>
+        </div>
+        <button class="btn-submit-booking" onclick="submitToWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Send Details on WhatsApp
+        </button>
+    </div>
+
+    <!-- Client Logic Scripts -->
     <script>
         let selectedLocation = 'all';
         let selectedCategory = 'all';
+        let activeHostel = '';
+        let activeLocation = '';
 
         function openSheet(id) {
             document.getElementById('sheet-overlay').classList.add('active');
@@ -559,9 +559,6 @@
         function selectLocation(value, label) {
             selectedLocation = value;
             document.getElementById('current-location-label').innerText = label;
-            
-            // Mark active layout state
-            updateVisualSelection('location-sheet', label);
             closeAllSheets();
             filterProperties();
         }
@@ -569,649 +566,4 @@
         function selectCategory(value, label) {
             selectedCategory = value;
             document.getElementById('current-category-label').innerText = label;
-            
-            updateVisualSelection('category-sheet', label);
             closeAllSheets();
-            filterProperties();
-        }
-
-        function updateVisualSelection(sheetId, selectedLabel) {
-            const cards = document.querySelectorAll(`#${sheetId} .sheet-option-card`);
-            cards.forEach(card => {
-                if(card.innerText === selectedLabel) {
-                    card.classList.add('selected');
-                } else {
-                    card.classList.remove('selected')
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--card-border);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .badge-verified {
-            background-color: #e0f2fe;
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            border: 1px solid #bae6fd;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: #ffffff;
-            padding: 60px 24px 40px 24px;
-            text-align: center;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 32px auto;
-        }
-
-        /* Dynamic Filter Bar */
-        .filter-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 16px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--card-border);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        @media (max-width: 600px) {
-            .filter-container {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 { font-size: 32px; }
-        }
-
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            gap: 6px;
-        }
-
-        .filter-group label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .filter-group select {
-            padding: 12px;
-            font-size: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            background-color: var(--bg-light);
-            color: var(--primary);
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .filter-group select:focus {
-            border-color: var(--accent);
-        }
-
-        /* Main Content Grid */
-        main {
-            max-width: 1200px;
-            margin: 48px auto;
-            padding: 0 24px;
-        }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hostel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 32px;
-        }
-
-        /* Premium Card Design */
-        .hostel-card {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hostel-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card-image-placeholder {
-            height: 200px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: #ffffff;
-        }
-
-        .gender-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .gender-boys { background-color: #e0f2fe; color: #0369a1; }
-        .gender-girls { background-color: #fce7f3; color: #be185d; }
-
-        .card-content {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-location {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .amenities-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
-
-        .amenity-tag {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--card-border);
-        }
-
-        .card-footer {
-            margin-top: auto;
-            border-top: 1px solid var(--card-border);
-            padding-top: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price-box {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-amount {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .price-label {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .cta-button {
-            background-color: var(--accent);
-            color: #ffffff;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Clean Transactional Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-box {
-            background-color: #ffffff;
-            border-radius: var(--radius);
-            width: 100%;
-            max-width: 440px;
-            padding: 32px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.2s;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-muted);
-        }
-
-        .modal-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        .modal-subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .form-group input {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            font-size: 15px;
-            outline: none;
-            background-color: var(--bg-light);
-        }
-
-        .form-group input:focus {
-            border-color: var(--accent);
-        }
-
-        .modal-submit {
-            width: 100%;
-            background-color: #25d366; /* WhatsApp Green */
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 24px;
-        }
-
-        .modal-submit:hover {
-            background-color: #20ba5a;
-        }
-
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 48px;
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Hostel<span>Nest</span></a>
-            <div class="badge-verified">✓ 100% Verified Properties</div>
-        </div>
-    </header>
-
-    <!-- Hero & Main Filter Hub -->
-    <section class="hero">
-        <h1>Find Verified Hostels in Lahore</h1>
-        <p>Direct contact with premium student and professional accommodations. Zero commission, zero booking fees.</p>
-        
-        <div class="filter-container">
-            <div class="filter-group">
-                <label for="areaFilter">Select Area / Location</label>
-                <select id="areaFilter" onchange="filterHostels()">
-                    <option value="all">All Areas / Whole Lahore</option>
-                    <option value="Johar Town">Johar Town (Near UCP, UMT)</option>
-                    <option value="Gulberg">Gulberg (Near Premium Hubs)</option>
-                    <option value="Anarkali">Anarkali (Near King Edward / GCU)</option>
-                    <option value="Gajjumata">Gajjumata (Near Metro Station)</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="genderFilter">Hostel Category</label>
-                <select id="genderFilter" onchange="filterHostels()">
-                    <option value="all">All Hostels</option>
-                    <option value="Boys">Boys Hostel Only</option>
-                    <option value="Girls">Girls Hostel Only</option>
-                </select>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Hostel Showroom Grid -->
-    <main>
-        <h2 class="section-title">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-            Available Accommodations
-        </h2>
-        <div class="hostel-grid" id="hostelGrid">
-            <!-- Injected dynamically via clean JavaScript runtime -->
-        </div>
-    </main>
-
-    <!-- Lead Capturing Popup Modal Container -->
-    <div class="modal-overlay" id="bookingModal" onclick="closeModal(event)">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="toggleModal()">&times;</button>
-            <div class="modal-title">Check Room Availability</div>
-            <div class="modal-subtitle">Fill details to get direct contact with <span id="modalHostelName" style="color:var(--accent); font-weight:700;"></span> management.</div>
-            
-            <form id="leadForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="buyerName">Your Full Name</label>
-                    <input type="text" id="buyerName" placeholder="e.g., Muhammad Ali" required>
-                </div>
-                <div class="form-group">
-                    <label for="buyerPhone">WhatsApp / Phone Number</label>
-                    <input type="tel" id="buyerPhone" placeholder="e.g., 03001234567" required>
-                </div>
-                <div class="form-group">
-                    <label for="moveDate">Target Move-In Date</label>
-                    <input type="date" id="moveDate" required>
-                </div>
-                <button type="submit" class="modal-submit">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.4.011 11.948.011c3.172.001 6.153 1.234 8.394 3.477 2.24 2.242 3.472 5.224 3.471 8.397-.003 6.597-5.343 11.935-11.89 11.935-2.005-.001-3.973-.505-5.714-1.467L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.743 1.451 5.416 0 9.825-4.386 9.828-9.771.001-2.61-1.013-5.064-2.857-6.91C16.478 2.08 14.033.785 11.947.785c-5.42 0-9.829 4.385-9.832 9.77-.001 1.636.434 3.23 1.258 4.664l-.991 3.613 3.673-.958z"/></svg>
-                    Connect via WhatsApp
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Reactive Logic Engine -->
-    <script>
-        // Real Mock Hardcoded Centralized Inventory Database
-        const hostelDatabase = [
-            {
-                id: 1,
-                title: "Al-Burraq Executive Boys Hostel",
-                area: "Johar Town",
-                gender: "Boys",
-                rent: "18,000",
-                amenities: ["Free Wi-Fi", "3-Time Mess", "UPS Backup", "Laundry Area"],
-                svgPattern: `<rect width="100%" height="100%" fill="#1e293b"/><circle cx="50%" cy="50%" r="40" fill="#0284c7" opacity="0.3"/>`
-            },
-            {
-                id: 2,
-                title: "Premium Luxury Girls Hostel",
-                area: "Gulberg",
-                gender: "Girls",
-                rent: "25,000",
-                amenities: ["AC Rooms", "24/7 Security", "Gym Access", "Generator"],
-                svgPattern: `<rect width="100%" height="100%" fill="#0f172a"/><path d="M0 0h340v200H0z" fill="url(#p1)" opacity="0.2"/>`
-            },
-            {
-                id: 3,
-                title: "Royal Palms Student Hub (Boys)",
-                area: "Johar Town",
-                gender: "Boys",
-                rent: "15,500",
-                amenities: ["Near UMT/UCP", "High Speed Net", "Attached Bath"],
-                svgPattern: `<rect width="100%" height="100%" fill="#334155"/>`
-            },
-            {
-                id: 4,
-                title: "Grace Executive Girls Residency",
-                area: "Gulberg",
-                gender: "Girls",
-                rent: "28,000",
-                amenities: ["Luxury Rooms", "CCTV Cameras", "Washing Machine"],
-                svgPattern: `<rect width="100%" height="100%" fill="#111827"/>`
-            },
-            {
-                id: 5,
-                title: "Safe Haven Girls Hostel",
-                area: "Anarkali",
-                gender: "Girls",
-                rent: "14,500",
-                amenities: ["Near King Edward", "Mess Included", "Clean Drinking Water"],
-                svgPattern: `<rect width="100%" height="100%" fill="#1e1b4b"/>`
-            },
-            {
-                id: 6,
-                title: "Metro Hub Boys Hostel",
-                area: "Gajjumata",
-                gender: "Boys",
-                rent: "12,000",
-                amenities: ["Near Metro Station", "Sasta Rent", "24/7 Wardens"],
-                svgPattern: `<rect width="100%" height="100%" fill="#030712"/>`
-            }
-        ];
-
-        let selectedHostelName = "";
-        const YOUR_CENTRAL_PHONE = "923001234567"; // NOTE: Change this to your real operational phone string
-
-        // Injection UI Card Loop Engine
-        function renderHostels(data) {
-            const grid = document.getElementById('hostelGrid');
-            grid.innerHTML = '';
-
-            if(data.length === 0) {
-                grid.innerHTML = `<div class="no-results">Afsoos! Is location ya category mein abhi koi hostel nahi mila. Please filter badal kar check karein.</div>`;
-                return;
-            }
-
-            data.forEach(hostel => {
-                const amenitiesHTML = hostel.amenities.map(a => `<span class="amenity-tag">${a}</span>`).join('');
-                const genderClass = hostel.gender === 'Boys' ? 'gender-boys' : 'gender-girls';
-                
-                const cardHTML = `
-                    <div class="hostel-card">
-                        <div class="card-image-placeholder">
-                            <svg width="100%" height="100%">${hostel.svgPattern}</svg>
-                            <span class="gender-badge ${genderClass}">${hostel.gender}</span>
-                            <span style="position:absolute; font-weight:700; font-size:18px; letter-spacing:1px; opacity:0.6;">${hostel.area}</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-location">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                ${hostel.area}
-                            </div>
-                            <div class="card-title">${hostel.title}</div>
-                            <div class="amenities-list">
-                                ${amenitiesHTML}
-                            </div>
-                            <div class="card-footer">
-                                <div class="price-box">
-                                    <span class="price-amount">Rs. ${hostel.rent}</span>
-                                    <span class="price-label">per month</span>
-                                </div>
-                                <button class="cta-button" onclick="openBookingModal('${hostel.title}')">
-                                    Check Availability
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                grid.innerHTML += cardHTML;
-            });
-        }
-
-        // Multiparameter Client-Side Extraction Filtering Engine
-        function filterHostels() {
-            const areaValue = document.getElementById('areaFilter').value;
-            const genderValue = document.getElementById('genderFilter').value;
-
-            const filtered = hostelDatabase.filter(hostel => {
-                const matchesArea = (areaValue === 'all' || hostel.area === areaValue);
-                const matchesGender = (genderValue === 'all' || hostel.gender === genderValue);
-                return matchesArea && matchesGender;
-            });
-
-            renderHostels(filtered);
-        }
-
-        // Modal State Transition Drivers
-        function openBookingModal(hostelName) {
-            selectedHostelName = hostelName;
-            document.getElementById('modalHostelName').innerText = hostelName;
-            toggleModal();
-        }
-
-        function toggleModal() {
-            const modal = document.getElementById('bookingModal');
-            modal.classList.toggle('active');
-        }
-
-        function closeModal(e) {
-            if(e.target.id === 'bookingModal') toggleModal();
-        }
-
-        // Secure Dynamic Parameterized Lead Sanitization and WhatsApp Routing Logic
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('buyerName').value.trim();
-            const phone = document.getElementById('buyerPhone').value.trim();
-            const date = document.getElementById('moveDate').value;
-
-            // Formulate standard clean text output payload
-            const messageText = `*New Lead from HostelNest Lahore*\n\n` + 
-                                `*Hostel:* ${selectedHostelName}\n` +
-                                `*Client Name:* ${name}\n` +
-                                `*Client Phone:* ${phone}\n` +
-                                `*Target Move-In Date:* ${date}`;
-
-            const encodedMessage = encodeURIComponent(messageText);
-            const whatsappURL = `https://api.whatsapp.com/send?phone=${YOUR_CENTRAL_PHONE}&text=${encodedMessage}`;
-
-            // Execute programmatic parameter routing context
-            toggleModal();
-            document.getElementById('leadForm').reset();
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Initialize App UI Layer Components instantly on document load states
-        window.onload = function() {
-            renderHostels(hostelDatabase);
-        };
-    </script>
-</body>
-</html>
