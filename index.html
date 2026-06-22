@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HostelNest Lahore | Premium Student & Professional Stays</title>
-    <!-- Google Fonts & FontAwesome for Luxury Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -18,15 +17,14 @@
             --bg-luxe: #f4f6f9;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --radius-premium: 16px;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            --glass-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
@@ -37,24 +35,21 @@
             padding-bottom: 40px;
         }
 
-        /* Glassmorphism Premium Header */
-        header {
-            position: sticky;
-            top: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        /* Navbar */
+        .navbar {
+            background: white;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 90;
         }
 
-        .logo {
-            font-size: 20px;
+        .brand {
+            font-size: 18px;
             font-weight: 700;
             color: var(--primary-dark);
             display: flex;
@@ -62,129 +57,258 @@
             gap: 8px;
         }
 
-        .logo span {
+        .brand span {
             color: var(--royal-light);
         }
 
         .verified-badge {
             background: #e0f2fe;
             color: #0369a1;
-            padding: 6px 12px;
-            border-radius: 30px;
+            padding: 4px 10px;
+            border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
-            border: 1px solid #bae6fd;
             display: flex;
             align-items: center;
             gap: 4px;
         }
 
-        /* Hero Banner */
-        .hero-banner {
-            position: relative;
-            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(30, 58, 138, 0.85)), url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 45px 20px;
-            text-align: center;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--royal-blue) 100%);
             color: white;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
-            box-shadow: 0 10px 25px rgba(10, 25, 47, 0.15);
+            padding: 40px 20px 80px 20px;
+            text-align: center;
         }
 
-        .hero-banner h1 {
-            font-size: 26px;
+        .hero h1 {
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
-        .hero-banner p {
+        .hero p {
             font-size: 13px;
-            color: #cbd5e1;
-            margin-bottom: 25px;
-            font-weight: 300;
+            color: #93c5fd;
+            font-weight: 400;
         }
 
-        /* Filter System */
-        .search-container {
-            background: white;
-            padding: 16px;
-            border-radius: var(--radius-premium);
-            box-shadow: var(--card-shadow);
+        /* Search/Filter Widget Box */
+        .filter-container {
             max-width: 500px;
-            margin: -20px auto 0 auto;
-            position: relative;
-            z-index: 10;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin: -50px auto 30px auto;
+            padding: 0 20px;
         }
 
-        .filter-trigger {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 14px 16px;
-            border-radius: 12px;
+        .filter-box {
+            background: white;
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .filter-row {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .filter-trigger:active {
-            background: #f1f5f9;
-            transform: scale(0.99);
+        .filter-row:not(:last-child) {
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .filter-trigger-info {
+        .filter-info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             gap: 2px;
         }
 
-        .filter-trigger-info span:first-child {
+        .filter-label {
             font-size: 10px;
-            color: var(--text-muted);
             text-transform: uppercase;
+            color: var(--text-muted);
             font-weight: 600;
             letter-spacing: 0.5px;
         }
 
-        .filter-trigger-info span:last-child {
+        .filter-value {
             font-size: 14px;
-            color: var(--primary-dark);
+            color: var(--text-main);
             font-weight: 600;
         }
 
-        .filter-trigger i {
+        .filter-icon {
             color: var(--royal-light);
             font-size: 16px;
         }
 
-        /* Bottom Sheets */
-        .bottom-sheet-overlay {
+        /* Section Title */
+        .section-title {
+            padding: 0 20px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hostel Cards Grid */
+        .hostel-grid {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hostel-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-container {
+            position: relative;
+            height: 200px;
+            background: #e2e8f0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gender-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gender-badge.boys {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .gender-badge.girls {
+            background: #fdf2f8;
+            color: #be185d;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-location {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--royal-light);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: var(--text-muted);
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 12px;
+        }
+
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .price-label {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .btn-luxury {
+            background: var(--gold-premium);
+            color: var(--primary-dark);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-luxury:hover {
+            background: var(--gold-hover);
+        }
+
+        /* Bottom Sheet & Modals Styling */
+        .backdrop {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(10, 25, 47, 0.4);
-            backdrop-filter: blur(4px);
-            z-index: 200;
+            backdrop-filter: blur(3px);
+            z-index: 100;
+            display: none;
             opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
-        .bottom-sheet-overlay.active {
+        .backdrop.show {
+            display: block;
             opacity: 1;
-            visibility: visible;
         }
 
         .bottom-sheet {
@@ -196,14 +320,14 @@
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
             padding: 24px 20px;
-            z-index: 201;
+            z-index: 110;
             transition: bottom 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            max-height: 75vh;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
         }
 
-        .bottom-sheet.active {
+        .bottom-sheet.show {
             bottom: 0;
         }
 
@@ -212,14 +336,12 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #f1f5f9;
         }
 
-        .sheet-header h3 {
-            font-size: 18px;
-            color: var(--primary-dark);
+        .sheet-title {
+            font-size: 16px;
             font-weight: 700;
+            color: var(--primary-dark);
         }
 
         .sheet-close {
@@ -227,343 +349,413 @@
             border: none;
             width: 32px;
             height: 32px;
-            border-radius: 50%;
+            border-radius: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-main);
             cursor: pointer;
+            color: var(--text-main);
         }
 
-        .sheet-options {
+        .option-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .sheet-option-card {
-            padding: 16px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+        .option-item {
+            padding: 14px 16px;
             border-radius: 12px;
-            font-size: 14px;
+            background: #f8fafc;
             font-weight: 600;
-            color: var(--text-main);
+            font-size: 14px;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
+            color: var(--text-main);
+            border: 1px solid transparent;
             transition: all 0.2s;
         }
 
-        .sheet-option-card.selected {
+        .option-item.selected {
             background: #eff6ff;
-            border-color: var(--royal-light);
             color: var(--royal-blue);
+            border-color: #bfdbfe;
         }
 
-        /* Listings Layout */
-        .section-title {
-            padding: 30px 20px 15px 20px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .listings-grid {
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .hostel-luxe-card {
+        /* Booking Center Popup Modal */
+        .booking-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 400px;
             background: white;
-            border-radius: var(--radius-premium);
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
-            position: relative;
-            display: flex;
-            flex-direction: column;
+            border-radius: 20px;
+            padding: 24px;
+            z-index: 120;
+            display: none;
+            opacity: 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .card-image-wrapper {
-            position: relative;
-            height: 180px;
-            background: #e2e8f0;
+        .booking-modal.show {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        .card-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gender-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .gender-badge.boys { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
-        .gender-badge.girls { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
-
-        .card-content { padding: 20px; }
-        .card-location { font-size: 11px; color: var(--royal-light); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
-        .card-title { font-size: 18px; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
-
-        .amenities-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-        .amenity-tag { background: #f1f5f9; color: #475569; font-size: 11px; padding: 6px 10px; border-radius: 8px; font-weight: 500; }
-
-        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #f1f5f9; }
-        .price-box { display: flex; flex-direction: column; }
-        .price-box .amount { font-size: 20px; font-weight: 700; color: var(--primary-dark); }
-        .price-box .label { font-size: 11px; color: var(--text-muted); }
-
-        .btn-premium-connect {
-            background: linear-gradient(135deg, var(--gold-premium), var(--gold-hover));
-            color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            border: none;
-        }
-
-        /* Lead Gen Form Premium Styling */
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
             margin-bottom: 16px;
         }
+
         .form-group label {
+            display: block;
             font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            color: var(--text-main);
+        }
+
+        .form-group input:focus {
+            border-color: var(--royal-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .hostel-preview-box {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--gold-premium);
+        }
+
+        .preview-title {
+            font-size: 13px;
             font-weight: 700;
             color: var(--primary-dark);
         }
-        .form-group input, .form-group select {
-            padding: 12px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 14px;
-            background: #f8fafc;
-            outline: none;
+
+        .preview-price {
+            font-size: 12px;
+            color: var(--royal-light);
+            font-weight: 600;
+            margin-top: 2px;
         }
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--royal-light);
-            background: white;
-        }
+
         .btn-submit-booking {
+            width: 100%;
             background: #25d366;
             color: white;
-            width: 100%;
+            border: none;
             padding: 14px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
-            border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-submit-booking:hover {
+            background: #20ba5a;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="logo"><i class="fa-solid fa-hotel"></i>Hostel<span>Nest</span></div>
-        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> 100% Verified</div>
-    </header>
+    <div class="navbar">
+        <div class="brand">
+            <i class="fa-solid fa-hotel" style="color: var(--royal-blue);"></i> Hostel <span>Nest</span>
+        </div>
+        <div class="verified-badge">
+            <i class="fa-solid fa-circle-check"></i> 100% Verified
+        </div>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero-banner">
+    <div class="hero">
         <h1>Find Premium Stays</h1>
         <p>Explore elite student & professional accommodations in Lahore</p>
-    </section>
+    </div>
 
-    <!-- Filter Buttons Grid -->
-    <section class="search-container">
-        <div class="filter-trigger" onclick="openSheet('location-sheet')">
-            <div class="filter-trigger-info">
-                <span>Select Location</span>
-                <span id="current-location-label">All Areas / Whole Lahore</span>
+    <div class="filter-container">
+        <div class="filter-box">
+            <div class="filter-row" id="locationTrigger">
+                <div class="filter-info">
+                    <span class="filter-label">Select Location</span>
+                    <span class="filter-value" id="currentLocationText">All Areas / Whole Lahore</span>
+                </div>
+                <i class="fa-solid fa-location-dot filter-icon"></i>
             </div>
-            <i class="fa-solid fa-location-dot"></i>
+            <div class="filter-row" id="typeTrigger">
+                <div class="filter-info">
+                    <span class="filter-label">Hostel Type</span>
+                    <span class="filter-value" id="currentTypeText">All Hostels</span>
+                </div>
+                <i class="fa-solid fa-users filter-icon"></i>
+            </div>
         </div>
+    </div>
 
-        <div class="filter-trigger" onclick="openSheet('category-sheet')">
-            <div class="filter-trigger-info">
-                <span>Hostel Type</span>
-                <span id="current-category-label">All Hostels</span>
-            </div>
-            <i class="fa-solid fa-user-group"></i>
-        </div>
-    </section>
+    <div class="section-title">
+        <i class="fa-solid fa-list-ul"></i> Handpicked Accommodations
+    </div>
 
-    <!-- Accommodation Grid -->
-    <h2 class="section-title"><i class="fa-solid fa-list"></i> Handpicked Accommodations</h2>
-    
-    <div class="listings-grid" id="hostel-listings">
-        <!-- Card 1 -->
-        <div class="hostel-luxe-card" data-location="johar-town" data-category="boys">
-            <div class="card-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="Premium Room">
-                <div class="gender-badge boys">Boys Only</div>
+    <div class="hostel-grid">
+        
+        <div class="hostel-card" data-location="johar-town" data-type="boys">
+            <div class="image-container">
+                <span class="gender-badge boys">Boys Only</span>
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80" alt="Boys Hostel Room">
             </div>
-            <div class="card-content">
-                <div class="card-location"><i class="fa-solid fa-map-pin"></i> Johar Town (Near UCP & UMT)</div>
+            <div class="card-body">
+                <div class="card-location">
+                    <i class="fa-solid fa-location-dot"></i> Johar Town (Near UCP & UMT)
+                </div>
                 <div class="card-title">Al-Burraq Executive Boys Hostel</div>
-                <div class="amenities-container">
-                    <div class="amenity-tag">Hi-Speed Wi-Fi</div>
-                    <div class="amenity-tag">3-Time Mess</div>
-                    <div class="amenity-tag">UPS Backup</div>
+                <div class="tag-container">
+                    <span class="tag">Hi-Speed Wi-Fi</span>
+                    <span class="tag">3-Time Mess</span>
+                    <span class="tag">UPS Backup</span>
                 </div>
                 <div class="card-footer">
                     <div class="price-box">
-                        <span class="amount">Rs. 18,000</span>
-                        <span class="label">per month</span>
+                        <span class="price">Rs. 18,000</span>
+                        <span class="price-label">per month</span>
                     </div>
-                    <button onclick="triggerBooking('Al-Burraq Executive Boys Hostel', 'Johar Town')" class="btn-premium-connect">
+                    <button class="btn-luxury check-luxury-btn" data-hostel="Al-Burraq Executive Boys Hostel" data-price="Rs. 18,000">
                         <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Card 2 (Fixed Broken Image Link) -->
-        <div class="hostel-luxe-card" data-location="gulberg" data-category="girls">
-            <div class="card-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" alt="Elite Room">
-                <div class="gender-badge girls">Girls Only</div>
+        <div class="hostel-card" data-location="gulberg" data-type="girls">
+            <div class="image-container">
+                <span class="gender-badge girls">Girls Only</span>
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80" alt="Girls Hostel Room">
             </div>
-            <div class="card-content">
-                <div class="card-location"><i class="fa-solid fa-map-pin"></i> Gulberg (Near Premium Hubs)</div>
+            <div class="card-body">
+                <div class="card-location">
+                    <i class="fa-solid fa-location-dot"></i> Gulberg (Near Premium Hubs)
+                </div>
                 <div class="card-title">Royal Palace Premium Girls Luxury Stay</div>
-                <div class="amenities-container">
-                    <div class="amenity-tag">Fully AC</div>
-                    <div class="amenity-tag">Premium Food</div>
-                    <div class="amenity-tag">24/7 Security</div>
+                <div class="tag-container">
+                    <span class="tag">Fully AC</span>
+                    <span class="tag">Premium Food</span>
+                    <span class="tag">24/7 Security</span>
                 </div>
                 <div class="card-footer">
                     <div class="price-box">
-                        <span class="amount">Rs. 25,000</span>
-                        <span class="label">per month</span>
+                        <span class="price">Rs. 25,000</span>
+                        <span class="price-label">per month</span>
                     </div>
-                    <button onclick="triggerBooking('Royal Palace Premium Girls Luxury Stay', 'Gulberg')" class="btn-premium-connect">
+                    <button class="btn-luxury check-luxury-btn" data-hostel="Royal Palace Premium Girls Luxury Stay" data-price="Rs. 25,000">
                         <i class="fa-brands fa-whatsapp"></i> Check Luxury Stay
                     </button>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- Bottom Sheets Setup -->
-    <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeAllSheets()"></div>
+    <div class="backdrop" id="screenBackdrop"></div>
 
-    <!-- Location Filter List -->
-    <div class="bottom-sheet" id="location-sheet">
+    <div class="bottom-sheet" id="locationBottomSheet">
         <div class="sheet-header">
-            <h3>Select Elite Area</h3>
-            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="sheet-title">Select Location / Area</span>
+            <button class="sheet-close" id="closeLocationSheet"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="sheet-options">
-            <div class="sheet-option-card" onclick="selectLocation('all', 'All Areas / Whole Lahore')">All Areas / Whole Lahore</div>
-            <div class="sheet-option-card" onclick="selectLocation('johar-town', 'Johar Town (Near UCP, UMT)')">Johar Town (Near UCP, UMT)</div>
-            <div class="sheet-option-card" onclick="selectLocation('gulberg', 'Gulberg (Near Premium Hubs)')">Gulberg (Near Premium Hubs)</div>
-        </div>
-    </div>
-
-    <!-- Category Filter List -->
-    <div class="bottom-sheet" id="category-sheet">
-        <div class="sheet-header">
-            <h3>Select Hostel Category</h3>
-            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="sheet-options">
-            <div class="sheet-option-card" onclick="selectCategory('all', 'All Hostels')">All Hostels</div>
-            <div class="sheet-option-card" onclick="selectCategory('boys', 'Boys Hostel Only')">Boys Hostel Only</div>
-            <div class="sheet-option-card" onclick="selectCategory('girls', 'Girls Hostel Only')">Girls Hostel Only</div>
+        <div class="option-list">
+            <div class="option-item selected" data-value="all">All Areas / Whole Lahore</div>
+            <div class="option-item" data-value="johar-town">Johar Town (Near UCP/UMT)</div>
+            <div class="option-item" data-value="gulberg">Gulberg Hub</div>
         </div>
     </div>
 
-    <!-- Custom Booking/Leads Form Sheet -->
-    <div class="bottom-sheet" id="booking-sheet">
+    <div class="bottom-sheet" id="typeBottomSheet">
         <div class="sheet-header">
-            <h3>Secure Your Luxury Stay</h3>
-            <button class="sheet-close" onclick="closeAllSheets()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="sheet-title">Select Hostel Type</span>
+            <button class="sheet-close" id="closeTypeSheet"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div style="margin-bottom: 15px; font-size: 13px; color: var(--text-muted);">
-            Hostel: <strong id="modal-hostel-name" style="color: var(--primary-dark);"></strong><br>
-            Location: <span id="modal-hostel-location"></span>
+        <div class="option-list">
+            <div class="option-item selected" data-value="all">All Hostels</div>
+            <div class="option-item" data-value="boys">Boys Only</div>
+            <div class="option-item" data-value="girls">Girls Only</div>
+        </div>
+    </div>
+
+    <div class="booking-modal" id="bookingPopupModal">
+        <div class="sheet-header" style="margin-bottom: 15px;">
+            <span class="sheet-title">Premium VIP Booking</span>
+            <button class="sheet-close" id="closeBookingModal"><i class="fa-solid fa-xmark"></i></button>
         </div>
         
-        <div class="form-group">
-            <label>Your Full Name</label>
-            <input type="text" id="visitor-name" placeholder="Enter your name">
+        <div class="hostel-preview-box">
+            <div class="preview-title" id="modalHostelTitle">Hostel Name</div>
+            <div class="preview-price" id="modalHostelPrice">Rs. 00,000 / month</div>
         </div>
-        <div class="form-group">
-            <label>Your City / Hometown</label>
-            <input type="text" id="visitor-city" placeholder="e.g. Faisalabad, Multan">
-        </div>
-        <div class="form-group">
-            <label>Room Requirement</label>
-            <select id="visitor-room-type">
-                <option value="Single Room">Single Private Room</option>
-                <option value="2-Sharing">2-Sharing Room</option>
-                <option value="3-Sharing">3-Sharing Room</option>
-            </select>
-        </div>
-        <button class="btn-submit-booking" onclick="submitToWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Send Details on WhatsApp
-        </button>
-    </div>
 
-    <!-- Client Logic Scripts -->
-    <script>
-        let selectedLocation = 'all';
-        let selectedCategory = 'all';
-        let activeHostel = '';
-        let activeLocation = '';
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+            <div class="form-group">
+                <label for="userName">YOUR FULL NAME</label>
+                <input type="text" id="userName" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="userCity">YOUR CURRENT CITY</label>
+                <input type="text" id="userCity" placeholder="e.g. Faisalabad, Multan" required>
+            </div>
+            <button type="submit" class="btn-submit-booking">
+                <i class="fa-brands fa-whatsapp"></i> Confirm via VIP WhatsApp
+            </button>
+        </form>
+                    </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Target Elements Definition
+            const backdrop = document.getElementById('screenBackdrop');
+            
+            const locationTrigger = document.getElementById('locationTrigger');
+            const locationSheet = document.getElementById('locationBottomSheet');
+            const closeLocationSheet = document.getElementById('closeLocationSheet');
+            
+            const typeTrigger = document.getElementById('typeTrigger');
+            const typeSheet = document.getElementById('typeBottomSheet');
+            const closeTypeSheet = document.getElementById('closeTypeSheet');
+            
+            const bookingModal = document.getElementById('bookingPopupModal');
+            const closeBookingModal = document.getElementById('closeBookingModal');
+            
+            let selectedHostelName = "";
+            let selectedHostelPrice = "";
 
-        function openSheet(id) {
-            document.getElementById('sheet-overlay').classList.add('active');
-            document.getElementById(id).classList.add('active');
-        }
+            // Active Filters State
+            let activeLocation = "all";
+            let activeType = "all";
 
-        function closeAllSheets() {
-            document.getElementById('sheet-overlay').classList.remove('active');
-            const sheets = document.querySelectorAll('.bottom-sheet');
-            sheets.forEach(sheet => sheet.classList.remove('active'));
-        }
+            // --- Bottom Sheet Toggle Functions ---
+            function openBottomSheet(sheet) {
+                backdrop.classList.add('show');
+                sheet.classList.add('show');
+            }
 
-        function selectLocation(value, label) {
-            selectedLocation = value;
-            document.getElementById('current-location-label').innerText = label;
-            closeAllSheets();
-            filterProperties();
-        }
+            function closeAllOverlays() {
+                backdrop.classList.remove('show');
+                locationSheet.classList.remove('show');
+                typeSheet.classList.remove('show');
+                bookingModal.classList.remove('show');
+            }
 
-        function selectCategory(value, label) {
-            selectedCategory = value;
-            document.getElementById('current-category-label').innerText = label;
-            closeAllSheets();
+            // Click Event Triggers
+            locationTrigger.addEventListener('click', () => openBottomSheet(locationSheet));
+            typeTrigger.addEventListener('click', () => openBottomSheet(typeSheet));
+            
+            closeLocationSheet.addEventListener('click', closeAllOverlays);
+            closeTypeSheet.addEventListener('click', closeAllOverlays);
+            closeBookingModal.addEventListener('click', closeAllOverlays);
+            backdrop.addEventListener('click', closeAllOverlays);
+
+            // --- Dynamic Card Filter Mechanism ---
+            function filterHostels() {
+                const cards = document.querySelectorAll('.hostel-card');
+                cards.forEach(card => {
+                    const loc = card.getAttribute('data-location');
+                    const typ = card.getAttribute('data-type');
+                    
+                    const matchLoc = (activeLocation === 'all' || activeLocation === loc);
+                    const matchTyp = (activeType === 'all' || activeType === typ);
+                    
+                    if(matchLoc && matchTyp) {
+                        card.style.setProperty('display', 'flex', 'important');
+                    } else {
+                        card.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }
+
+            // Options Selection Handling (Location)
+            const locationOptions = locationSheet.querySelectorAll('.option-item');
+            locationOptions.forEach(opt => {
+                opt.addEventListener('click', function() {
+                    locationOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    activeLocation = this.getAttribute('data-value');
+                    document.getElementById('currentLocationText').innerText = this.innerText;
+                    closeAllOverlays();
+                    filterHostels();
+                });
+            });
+
+            // Options Selection Handling (Type)
+            const typeOptions = typeSheet.querySelectorAll('.option-item');
+            typeOptions.forEach(opt => {
+                opt.addEventListener('click', function() {
+                    typeOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    activeType = this.getAttribute('data-value');
+                    document.getElementById('currentTypeText').innerText = this.innerText;
+                    closeAllOverlays();
+                    filterHostels();
+                });
+            });
+
+            // --- Booking Action Handler ---
+            const luxuryButtons = document.querySelectorAll('.check-luxury-btn');
+            luxuryButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    selectedHostelName = this.getAttribute('data-hostel');
+                    selectedHostelPrice = this.getAttribute('data-price');
+                    
+                    document.getElementById('modalHostelTitle').innerText = selectedHostelName;
+                    document.getElementById('modalHostelPrice').innerText = selectedHostelPrice + " / month";
+                    
+                    // Show Center Popup
+                    backdrop.classList.add('show');
+                    bookingModal.classList.add('show');
+                });
+            });
+
+            // Window-level Submit Accessor
+            window.handleBookingSubmit = function(event) {
+                event.preventDefault();
+                const name = document.getElementById('userName').value.trim();
+                const city = document.getElementById('userCity').value.trim();
+                
+                // VIP WhatsApp Message Compilation
+                const textMessage = `✨ *VIP LUXURY STAY INQUIRY* ✨\n\n` +
+                                    `👤 *Client Name:* ${name}\n` +
+                                    `🏙️ *Current City:* ${city}\n\n` +
+                                    `🏢 *Selected Property:* ${selectedHostelName}\n` +
+                                    `💰 *Rate:* ${selectedHostelPrice}/month\n\n` +
+                                    `🚀 *Status:* Please share availability and visit schedule.`;
+                
+                const encodedText = encodeURIComponent(textMessage);
+                const whatsappNumber = "923234730384"; // Hostels Admin Line
+                
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
+                closeAllOverlays();
+            };
+        });
+    </script>
+</body>
+</html>
